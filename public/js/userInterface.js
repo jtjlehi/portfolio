@@ -3,31 +3,28 @@ import {addScrollToElement} from "./animation/scroll.js";
 import {initWindowScroll} from "./animation/scroll.js";
 import {transition} from './animation/transition.js'
 import {initWindow} from "./window.js";
-// import { TicTacToe } from '../ticTacToeComponent/component.js';
-// import { createComponent } from '../js/componentConstructor.js';
-import { loadComponents } from '../js/componentsLoader.js';
 
 export let els = {};
 let load = function () {
     initWindow();
     $('.slideDown.projectsNavBtn').click(function () {
-        transition.down('section404', $('.section0'));
+        transition.down('sectionProject', $('.sectionHome'));
     });
     $('.slideUp.sterlingNavBtn').click(function () {
-        transition.up('section404', $('.section0'));
+        transition.up('sectionSterlingScholar', $('.sectionHome'));
     });
     $('.slideLeft.miscNavBtn').click(function () {
-        transition.left('section404', $('.section0'));
+        transition.left('section404', $('.sectionHome'));
     });
     $('.slideRight.contactNavBtn').click(function () {
-        transition.right('section404', $('.section0'));
+        transition.right('section404', $('.sectionHome'));
     });
-    //define custom elements
-    loadComponents();
-    let content = document.querySelector('link[rel="import"]').import;
-    
-    let tmpl = content.querySelector('#tic-tac-toe-piece');
-    console.log(tmpl);
+    $('.slideDown.homeNavBtn').click(function() {
+        transition.down('sectionHome', $('.sectionSterlingScholar'));
+    });
+    $('.slideUp.homeNavBtn').click(function() {
+        transition.up('sectionHome', $('.sectionProject'))
+    })
 };
 load();
 window.addEventListener('mousewheel', function (event) {
